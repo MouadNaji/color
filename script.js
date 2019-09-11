@@ -9,6 +9,7 @@ function selectColor(event) {
   document.querySelector(".color").style.backgroundColor = `${color}`;
   document.querySelector(".hex1").textContent = `Hex: ${color}`;
 }
+
 function convertHEXtoRGB(color) {
   let r = parseInt(color.substring(1, 3), 16);
   let g = parseInt(color.substring(3, 5), 16);
@@ -58,5 +59,6 @@ function convertRGBtoHSL(r, g, b) {
   h = Math.floor(h * 10);
   s = Math.floor(s * 10);
   l = Math.floor(l * 10);
+
   document.querySelector(".HSL").textContent = `HSL: ${h}, ${s}, ${l}`;
 }
