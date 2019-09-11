@@ -1,5 +1,14 @@
-.color {
+.color,
+.color2,
+.color3,
+.color4,
+.color5 {
   width: 10rem;
   height: 10rem;
   border: solid;
+}
+#indhold {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0;
 }
