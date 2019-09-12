@@ -12,8 +12,8 @@ function selectColor(event) {
 
 function convertHEXtoRGB(color) {
   let r = parseInt(color.substring(1, 3), 16);
-  let g = parseInt(color.substring(3, 5), 16);
-  let b = parseInt(color.substring(5, 7), 16);
+  let b = parseInt(color.substring(3, 5), 16);
+  let g = parseInt(color.substring(5, 7), 16);
 
   document.querySelector(".RGB").textContent = `RGB: (${r},${g},${b})`;
   convertRGBtoHSL(r, b, g);
@@ -65,26 +65,43 @@ function convertRGBtoHSL(r, g, b) {
     ".color"
   ).style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
 
-  document.querySelector(".HSL2").textContent = `HSL: ${h}, ${s}, ${l - 30}`;
-  document.querySelector(
-    ".color2"
-  ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 30}%)`;
+  if (document.querySelector("#theme").value === "monochromatic") {
+    document.querySelector(".HSL2").textContent = `HSL: ${h}, ${s}, ${l - 30}`;
+    document.querySelector(
+      ".color2"
+    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 30}%)`;
 
-  document.querySelector(".HSL3").textContent = `HSL: ${h}, ${s}, ${l - 20}`;
-  document.querySelector(
-    ".color3"
-  ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 20}%)`;
+    document.querySelector(".HSL3").textContent = `HSL: ${h}, ${s}, ${l - 20}`;
+    document.querySelector(
+      ".color3"
+    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 20}%)`;
 
-  document.querySelector(".HSL4").textContent = `HSL: ${h}, ${s}, ${l + 10}`;
-  document.querySelector(
-    ".color4"
-  ).style.backgroundColor = `hsl(${h}, ${s}%, ${l + 10}%)`;
+    document.querySelector(".HSL4").textContent = `HSL: ${h}, ${s}, ${l + 10}`;
+    document.querySelector(
+      ".color4"
+    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l + 10}%)`;
 
-  document.querySelector(".HSL5").textContent = `HSL: ${h}, ${s}, ${l + 20}`;
-  document.querySelector(
-    ".color5"
-  ).style.backgroundColor = `hsl(${h}, ${s}%, ${l + 20}%)`;
+    document.querySelector(".HSL5").textContent = `HSL: ${h}, ${s}, ${l + 20}`;
+    document.querySelector(
+      ".color5"
+    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l + 20}%)`;
+  } else if (document.querySelector("#theme").value === "analogous") {
+    document.querySelector(".HSL2").textContent = `HSL: ${h - 40}, ${s}, ${l}`;
+    document.querySelector(".color2").style.backgroundColor = `hsl(${h -
+      40}, ${s}%, ${l}%)`;
 
+    document.querySelector(".HSL3").textContent = `HSL: ${h - 20}, ${s}, ${l}`;
+    document.querySelector(".color3").style.backgroundColor = `hsl(${h -
+      20}, ${s}%, ${l}%)`;
+
+    document.querySelector(".HSL4").textContent = `HSL: ${h + 20}, ${s}, ${l}`;
+    document.querySelector(".color4").style.backgroundColor = `hsl(${h +
+      20}, ${s}%, ${l}%)`;
+
+    document.querySelector(".HSL5").textContent = `HSL: ${h + 40}, ${s}, ${l}`;
+    document.querySelector(".color5").style.backgroundColor = `hsl(${h +
+      40}, ${s}%, ${l}%)`;
+  }
   hslToRgb(h, s, l);
 }
 
