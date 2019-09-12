@@ -1,4 +1,5 @@
 "use strict";
+document.addEventListener("DOMContentLoaded", selectColor);
 const colorPicker = document.querySelector("#basecolor");
 colorPicker.addEventListener("input", selectColor);
 
@@ -106,21 +107,23 @@ function convertRGBtoHSL(r, g, b) {
     document.querySelector(".color2").style.backgroundColor = `hsl(${h +
       60}, ${s}%, ${l}%)`;
 
-    document.querySelector(".HSL3").textContent = `HSL: ${h - 60}, ${s}, ${l}`;
-    document.querySelector(".color3").style.backgroundColor = `hsl(${h -
-      60}, ${s}%, ${l}%)`;
+    document.querySelector(".HSL3").textContent = `HSL: ${h}, ${s}, ${l - 20}`;
+    document.querySelector(
+      ".color3"
+    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 20}%)`;
 
     document.querySelector(".HSL4").textContent = `HSL: ${h}, ${s}, ${l + 20}`;
     document.querySelector(
       ".color4"
     ).style.backgroundColor = `hsl(${h}, ${s}%, ${l + 20}%)`;
 
-    document.querySelector(".HSL5").textContent = `HSL: ${h + 60}, ${s}, ${l -
-      20}`;
-    document.querySelector(
-      ".color5"
-    ).style.backgroundColor = `hsl(${h}, ${s}%, ${l - 20}%)`;
+    document.querySelector(".HSL5").textContent = `HSL: ${h - 60}, ${s}, ${l}`;
+    document.querySelector(".color5").style.backgroundColor = `hsl(${h -
+      60}, ${s}%, ${l}%)`;
   }
+  addRGBVAlUE();
+}
+function addRGBVAlUE() {
   const color2 = document.querySelector(".color2");
   const color3 = document.querySelector(".color3");
   const color4 = document.querySelector(".color4");
