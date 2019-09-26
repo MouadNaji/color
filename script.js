@@ -121,9 +121,9 @@ function convertRGBtoHSL(r, g, b) {
     document.querySelector(".color5").style.backgroundColor = `hsl(${h -
       60}, ${s}%, ${l}%)`;
   }
-  addRGBVAlUE();
+  addRGBValue();
 }
-function addRGBVAlUE() {
+function addRGBValue() {
   const color2 = document.querySelector(".color2");
   const color3 = document.querySelector(".color3");
   const color4 = document.querySelector(".color4");
